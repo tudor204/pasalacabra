@@ -4,7 +4,7 @@ import math
 class Letra:
     def __init__(self, letra, angulo, centro, radio_circulo, radio_rosco, fuente):
         self.letra = letra
-        self.angulo = angulo  # en radianes
+        self.angulo = angulo  
         self.centro_x, self.centro_y = centro
         self.radio_circulo = radio_circulo
         self.radio_rosco = radio_rosco
@@ -20,9 +20,7 @@ class Letra:
         return (x, y)
 
     def dibujar(self, superficie):
-        # Dibujar círculo
         pg.draw.circle(superficie, self.color_circulo, self.pos, self.radio_circulo)
-        # Dibujar letra centrada
         texto_render = self.fuente.render(self.letra, True, self.color_texto)
         rect = texto_render.get_rect(center=self.pos)
         superficie.blit(texto_render, rect)
@@ -53,7 +51,6 @@ class Rosco:
     def crear_letras(self):
         total = len(self.letras)
         for i, letra in enumerate(self.letras):
-            # Empezamos desde la parte superior (ángulo -pi/2)
             angulo = (2 * math.pi / total) * i - math.pi / 2
             letra_obj = Letra(letra, angulo, self.centro, self.radio_circulo_letra, self.radio, self.fuente_letra)
             self.letras_objetos.append(letra_obj)

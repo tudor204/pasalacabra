@@ -1,4 +1,4 @@
-from clases import Rosco  # o rosco, según el nombre del archivo
+from clases import Rosco  
 
 if __name__ == "__main__":
     juego = Rosco()
